@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -25,4 +25,24 @@ code {
 .btn-ToHome {
   background-color: dodgerblue;
   color: white;
+}
+.hasil {
+  height: 460px;
+}
+.menu {
+  height: 495px;
+}
+.card-menu {
+  height: 17em;
+}
+.card-menu:hover {
+  transform: translateY(-10px);
+  cursor: pointer;
+}
+.list-pesanan:hover{
+  cursor: pointer;
+  background-color: whitesmoke;
+}
+.overflow-auto::-webkit-scrollbar {
+  display: none;
 }

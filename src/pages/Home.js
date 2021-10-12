@@ -32,6 +32,8 @@ function Home() {
       .catch((err) => {
         console.log(err);
       });
+
+      getListKeranjangs();
   }, []);
 
   const changeCategory = (value) => {
@@ -63,6 +65,7 @@ function Home() {
           axios
             .post(API_URL + "keranjangs", keranjang)
             .then((res) => {
+              getListKeranjangs();
               swal({
                 title: "Sukses!",
                 text: `Pesanan ${keranjang.product.nama} telah masuk di keranjang.`,
@@ -85,6 +88,7 @@ function Home() {
           axios
             .put(API_URL + "keranjangs/" + res.data[0].id, keranjang)
             .then((res) => {
+              getListKeranjangs();
               swal({
                 title: "Sukses!",
                 text: `Pesanan ${keranjang.product.nama} telah masuk di keranjang.`,
@@ -103,9 +107,23 @@ function Home() {
       });
   };
 
-  useEffect(() => {
-    if (keranjangs) {
-      axios
+  // stop infinite Loop
+  // useEffect(() => {
+  //   if (keranjangs) {
+  //     axios
+  //       .get(API_URL + "keranjangs")
+  //       .then((res) => {
+  //         setKeranjangs(res.data);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   }
+  // }, [keranjangs]);
+
+  // pengganti useEffect diatas
+  const getListKeranjangs = () =>{
+    axios
         .get(API_URL + "keranjangs")
         .then((res) => {
           setKeranjangs(res.data);
@@ -113,8 +131,7 @@ function Home() {
         .catch((err) => {
           console.log(err);
         });
-    }
-  }, [keranjangs]);
+  }
 
   return (
     <div className="App">
@@ -130,7 +147,7 @@ function Home() {
                 <strong>Daftar Produk</strong>
               </h4>
               <hr />
-              <Row>
+              <Row className="overflow-auto menu">
                 {menus &&
                   menus.map((menu) => (
                     <Menus
@@ -141,7 +158,7 @@ function Home() {
                   ))}
               </Row>
             </Col>
-            <Hasil keranjang={keranjangs} />
+            <Hasil keranjang={keranjangs} getListKeranjangs={getListKeranjangs} />
           </Row>
         </Container>
       </div>

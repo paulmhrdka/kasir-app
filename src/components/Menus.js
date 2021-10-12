@@ -5,16 +5,21 @@ import { numberWithCommas } from "../utils/utils";
 const Menus = ({ menu, masukKeranjang }) => {
   return (
     <Col md={4} sm={6} className="mb-4">
-      <Card className="shadow" style={{height: "18em"}} onClick={() => masukKeranjang(menu)}>
+      <Card
+        className="shadow card-menu"
+        onClick={() => masukKeranjang(menu)}
+      >
         <Card.Img
           variant="top"
           src={"images/" + menu.category.nama.toLowerCase() + "/" + menu.gambar}
         />
         <Card.Body>
           <Card.Title>
-            <strong>{menu.nama}</strong> ({menu.kode})
+            <strong>{menu.nama}</strong>
           </Card.Title>
-          <Card.Text>Rp. {numberWithCommas(menu.harga)}</Card.Text>
+          <Card.Text style={{ color: "grey" }}>
+            Rp. {numberWithCommas(menu.harga)}
+          </Card.Text>
         </Card.Body>
       </Card>
     </Col>

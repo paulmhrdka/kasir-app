@@ -35,7 +35,7 @@ const Total = ({ keranjang }) => {
         <Col md={{ span: 3, offset: 9 }} className="px-4">
           <h5>
             Total Harga :{" "}
-            <strong className="float-right mr-2">
+            <strong style={{ float: "right" }}>
               Rp. {numberWithCommas(totalBayar)}
             </strong>
           </h5>
@@ -44,7 +44,7 @@ const Total = ({ keranjang }) => {
             <Button
               variant="primary"
               size="md"
-              className="float-right my-2"
+              className="float-right my-2 mb-3"
               style={{ width: "100%" }}
               disabled
             >
@@ -54,7 +54,7 @@ const Total = ({ keranjang }) => {
             <Button
               variant="primary"
               size="md"
-              className="float-right my-2"
+              className="float-right my-2 mb-3"
               style={{ width: "100%" }}
               onClick={() => submitTotalBayar(totalBayar)}
             >

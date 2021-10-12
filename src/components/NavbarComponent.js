@@ -5,7 +5,7 @@ function NavbarComponent() {
   return (
     <Navbar className="navbar" expand="lg" variant="dark">
       <Container>
-        <Navbar.Brand className="nav-brand" href="#home">
+        <Navbar.Brand className="nav-brand">
           <strong>Kasir App</strong>
         </Navbar.Brand>
       </Container>
