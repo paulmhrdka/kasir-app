@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, ListGroup, Badge, Row } from "react-bootstrap";
 import { numberWithCommas } from "../utils/utils";
+import Total from "./Total";
 
 const Hasil = ({ keranjang }) => {
   return (
@@ -12,7 +13,7 @@ const Hasil = ({ keranjang }) => {
       {keranjang.length !== 0 && (
         <ListGroup variant="flush">
           {keranjang.map((menu) => (
-            <ListGroup.Item>
+            <ListGroup.Item key={menu.id}>
               <Row>
                 <Col xs={2}>
                   <h4>
@@ -35,6 +36,7 @@ const Hasil = ({ keranjang }) => {
           ))}
         </ListGroup>
       )}
+      <Total keranjang={keranjang} />
     </Col>
   );
 };

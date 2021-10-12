@@ -3,7 +3,6 @@ body {
   font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(248, 248, 248);
 }
 
 code {
@@ -19,6 +18,11 @@ code {
   font-size: 1.5em;
 }
 .category-aktif {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.btn-ToHome {
   background-color: dodgerblue;
   color: white;
 }
